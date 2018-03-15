@@ -1,0 +1,14 @@
+BASEFS=/poudriere
+POUDRIERE_DATA=/data
+NO_ZFS=yes
+FREEBSD_HOST=ftp://ftp.freebsd.org
+RESOLV_CONF=/etc/resolv.conf
+USE_PORTLINT=no
+USE_TMPFS=yes
+# Limit tmpfs memory to how size of mem
+MAX_MEMORY=${MAX_MEMORY}
+DISTFILES_CACHE=/usr/ports/distfiles
+CHECK_CHANGED_OPTIONS=verbose
+CHECK_CHANGED_DEPS=yes
+USE_COLORS=no
+PKG_REPO_SIGNING_KEY=${SIGNING_KEY}
