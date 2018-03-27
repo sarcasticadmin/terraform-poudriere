@@ -1,4 +1,7 @@
 # Terraform Poudriere
+
+[![CircleCI](https://circleci.com/gh/sarcasticadmin/terraform-poudriere/tree/master.svg?style=shield)](https://circleci.com/gh/sarcasticadmin/terraform-poudriere/tree/master)
+
 Build your own `pkgng` repo and host it in AWS! This terraform module allows you to build pkgs on the fly
 and the host the repo out of `s3`. Currently it will turn the `poudriere` autoscaling group to 0 after it
 is done building.
