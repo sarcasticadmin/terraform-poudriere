@@ -63,7 +63,7 @@ EOF
   source {
     content = <<EOF
 >/usr/local/etc/poudriere.d/make.conf
-${file("${path.module}/config/make.conf")}
+${var.poudriere_make == "" ? file("${path.module}/config/make.conf") : var.poudriere_make}
 EOF
 
     filename = "make.conf"

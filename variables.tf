@@ -54,3 +54,7 @@ variable "autoscaling_schedule_recurrence" {
   description = "cron string for how frequently poudriere should scale up"
   default     = "0 8 1 * *"
 }
+
+variable "poudriere_make" {
+  default = ""
+}
