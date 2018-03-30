@@ -58,3 +58,11 @@ variable "autoscaling_schedule_recurrence" {
 variable "poudriere_make" {
   default = ""
 }
+
+variable "poudriere_conf" {
+  default = ""
+}
+
+variable "poudriere_list" {
+  default = ""
+}
