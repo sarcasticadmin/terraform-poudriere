@@ -17,7 +17,7 @@ aws s3 cp poudriere.key s3://<secure_bucket>/path/poudriere.key
 ```
 
 ## Config
-Example of using the module:
+[Example](https://github.com/sarcasticadmin/terraform-poudriere/tree/master/examples/simple/) of using the module:
 ```
 module "poudriere" {
   source         = "./terraform-poudriere"
@@ -43,7 +43,7 @@ aws ec2 describe-images --owners 118940168514 \
 
 ## Notes
 ### Troubleshooting
-First check the boostrap.log:
+First check the boostrap.log on the `ec2` instance:
 ```
 less /var/log/bootstrap.log
 ```
