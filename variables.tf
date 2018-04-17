@@ -24,6 +24,7 @@ variable "aws_subnet_id" {
 
 variable "ssh_key_name" {
   description = "Name for default ssh key to log in"
+  default     = ""
 }
 
 variable "pkg_s3_bucket" {
