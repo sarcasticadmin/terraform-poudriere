@@ -1,3 +1,14 @@
+### Terraform ###
+# Compiled files
+*.tfstate
+*.tfstate.*
+
+# Module directory
+.terraform/
+
+# .tfvars files
+*.tfvars
+
 
 # Created by https://www.gitignore.io/api/osx,vim,archive,archives,compression
 
