@@ -63,7 +63,7 @@ EOF
   source {
     content = <<EOF
 >/usr/local/etc/poudriere.d/make.conf
-${file("${path.module}/config/make.conf")}
+${var.poudriere_make == "" ? file("${path.module}/config/make.conf") : var.poudriere_make}
 EOF
 
     filename = "make.conf"
@@ -72,7 +72,7 @@ EOF
   source {
     content = <<EOF
 >/usr/local/etc/poudriere.conf
-${data.template_file.poudriere_conf.rendered}
+${var.poudriere_conf == "" ? data.template_file.poudriere_conf.rendered : var.poudriere_conf}
 EOF
 
     filename = "poudriere.conf"
@@ -81,7 +81,7 @@ EOF
   source {
     content = <<EOF
 >/usr/local/etc/poudriere-list
-${file("${path.module}/config/poudriere-list")}
+${var.poudriere_list == "" ? file("${path.module}/config/poudriere-list") : var.poudriere_list}
 EOF
 
     filename = "poudriere-list"

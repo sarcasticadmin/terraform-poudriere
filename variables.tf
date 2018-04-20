@@ -24,6 +24,7 @@ variable "aws_subnet_id" {
 
 variable "ssh_key_name" {
   description = "Name for default ssh key to log in"
+  default     = ""
 }
 
 variable "pkg_s3_bucket" {
@@ -52,4 +53,16 @@ variable "autoscaling_schedule_enable" {
 variable "autoscaling_schedule_recurrence" {
   description = "cron string for how frequently poudriere should scale up"
   default     = "0 8 1 * *"
+}
+
+variable "poudriere_make" {
+  default = ""
+}
+
+variable "poudriere_conf" {
+  default = ""
+}
+
+variable "poudriere_list" {
+  default = ""
 }
