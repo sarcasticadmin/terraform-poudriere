@@ -1,3 +1,4 @@
+---
 version: 2
 jobs:
   build:
@@ -10,4 +11,4 @@ jobs:
           command: if [[ -n "$(git log origin/master..HEAD --merges)" ]]; then echo "master was merged into this branch, please use \"git rebase\" instead"; exit 1; fi
       - run:
           name: Did you fmt
-          command: if [[ -n "$(terraform fmt -write=false)" ]]; then echo "Some terraform files need be formatted, run 'terraform fmt' to fix"; exit 1; fi
+          command: terraform fmt -write=false -check=true -diff=true
