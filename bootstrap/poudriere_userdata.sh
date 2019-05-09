@@ -52,6 +52,10 @@ chmod 0400 ${SIGNING_KEY}
 # Sync signing key
 aws s3 cp s3://${SIGNING_S3_KEY} ${SIGNING_KEY}
 
+# TODO: Fix stopgap
+mkdir /poudriere
+mkdir /data
+
 # Distfile cache
 mkdir -p /usr/ports/distfiles
 
