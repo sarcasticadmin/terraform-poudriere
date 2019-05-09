@@ -66,3 +66,7 @@ variable "poudriere_conf" {
 variable "poudriere_list" {
   default = ""
 }
+
+variable "auto_spindown" {
+  default = true
+}

@@ -40,7 +40,9 @@ scale_down(){
 
 install_pkgs
 
-trap scale_down EXIT
+if [ $AUTO_SPINDOWN -eq 1 ]; then
+  trap scale_down EXIT
+fi
 
 # Key stuff
 mkdir -p /usr/local/etc/ssl/keys
