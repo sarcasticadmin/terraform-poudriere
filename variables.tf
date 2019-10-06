@@ -6,12 +6,12 @@ variable "aws_region" {
 # If wildcard it will always choose latest
 variable "aws_ami_name_filter" {
   description = "Name filter for matching FreeBSD ami"
-  default     = "FreeBSD 11.1-STABLE-amd64*"
+  default     = "FreeBSD 12.1-STABLE-amd64*"
 }
 
 variable "instance_size" {
   description = "ec2 instance size for building"
-  default     = "t2.large"
+  default     = "t3a.large"
 }
 
 variable "vpc_id" {
@@ -65,6 +65,10 @@ variable "poudriere_conf" {
 
 variable "poudriere_list" {
   default = ""
+}
+
+variable "jail_version" {
+  default = "12.1-RELEASE"
 }
 
 variable "auto_spindown" {

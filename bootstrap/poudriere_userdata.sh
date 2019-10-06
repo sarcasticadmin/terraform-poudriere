@@ -65,7 +65,7 @@ mkdir -p /usr/ports/distfiles
 
 poudriere ports -c
 
-poudriere jail -c -j "${ABI}" -v "${VERSION}-RELEASE" -a "${ARCH}"
+poudriere jail -c -j "${ABI}" -v "${JAIL_VERSION}" -a "${ARCH}"
 
 poudriere bulk -f /usr/local/etc/poudriere-list -j "${ABI}"
 

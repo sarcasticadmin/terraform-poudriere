@@ -55,6 +55,7 @@ AMI_NAME="${data.aws_ami.freebsd.name}"
 SIGNING_S3_KEY=${var.signing_s3_key}
 SIGNING_KEY=${var.signing_key}
 S3_BUCKET=${var.pkg_s3_bucket}
+JAIL_VERSION="${var.jail_version}"
 AUTO_SPINDOWN="${var.auto_spindown ? 1 : 0}"
 EOF
 
