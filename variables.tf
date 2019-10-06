@@ -71,6 +71,10 @@ variable "jail_version" {
   default = "12.1-RELEASE"
 }
 
+variable "volume_size" {
+  default = 10
+}
+
 variable "auto_spindown" {
   default = true
 }

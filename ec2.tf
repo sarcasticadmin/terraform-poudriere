@@ -104,6 +104,10 @@ resource "aws_launch_configuration" "poudriere" {
   ebs_optimized     = false
   enable_monitoring = false
 
+  root_block_device {
+    volume_size = "${var.volume_size}"
+  }
+
   lifecycle {
     create_before_destroy = true
   }
