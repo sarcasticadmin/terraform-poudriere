@@ -11,7 +11,7 @@ data "aws_ami" "freebsd" {
     values = ["hvm"]
   }
 
-  owners = ["118940168514"] # Account for FreeBSD hosted AMIs
+  owners = ["782442783595"] # Account for FreeBSD hosted AMIs
 }
 
 resource "aws_security_group" "poudriere" {

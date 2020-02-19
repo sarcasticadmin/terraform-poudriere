@@ -34,11 +34,11 @@ module "poudriere" {
 Use the following `awscli` command to look up specific AMIs for
 `FreeBSD 11.1` in region `us-east-1`:
 ```
-aws ec2 describe-images --owners 118940168514 \
+aws ec2 describe-images --owners 782442783595 \
 			--filters "Name=name,Values='FreeBSD 11.1-STABLE-amd64*'" "Name=root-device-type,Values=ebs" \
 			--query 'sort_by(Images, &CreationDate)[].[ImageId, Name]'
 ```
-> NOTE: the account id 118940168514 is the account thats hosting the FreeBSD
+> NOTE: the account id 782442783595 is the account thats hosting the FreeBSD
 > offical images.
 
 ## Notes

@@ -11,9 +11,8 @@ export PATH=$PATH:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/
 # shellcheck disable=SC1091
 . /etc/terraform.facts
 CURL_FLAGS="-L --connect-timeout 10 --max-time 120"
-ARCH=$(echo "${AMI_NAME}" | cut -d '-' -f3)
-VERSION=$(echo "${AMI_NAME}" | cut -d ' ' -f2 | cut -d '-' -f1)
-ABI="FreeBSD:$(echo "${VERSION}" | cut -d '.' -f1):${ARCH}"
+ARCH=$(uname -p)
+ABI="FreeBSD:$(echo "${JAIL_VERSION}" | cut -d '.' -f1):${ARCH}"
 
 install_pkgs(){
   env ASSUME_ALWAYS_YES=YES pkg bootstrap
