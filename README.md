@@ -52,3 +52,32 @@ Check a failed build check compile flags in:
 ```
 less /data/logs/bulk/
 ```
+
+### Unsupport System
+
+If your build fails and you notice the in build logs a similar error:
+
+```
+--End resource limits--
+=======================<phase: check-sanity   >============================
+/!\ ERROR: /!\
+
+Ports Collection support for your FreeBSD version has ended, and no ports are
+guaranteed to build on this system. Please upgrade to a supported release.
+
+No support will be provided if you silence this message by defining
+ALLOW_UNSUPPORTED_SYSTEM.
+
+*** Error code 1
+
+Stop.
+```
+
+This is due to the version of FreeBSD being built is no longer supported, you need to add the following to
+your `make.conf`:
+
+```
+ALLOW_UNSUPPORTED_SYSTEM=yes
+```
+
+Please consider updating the version of the AMI and the jail you are building against
