@@ -34,11 +34,11 @@ module "poudriere" {
 Use the following `awscli` command to look up specific AMIs for
 `FreeBSD 11.1` in region `us-east-1`:
 ```
-aws ec2 describe-images --owners 118940168514 \
+aws ec2 describe-images --owners 782442783595 \
 			--filters "Name=name,Values='FreeBSD 11.1-STABLE-amd64*'" "Name=root-device-type,Values=ebs" \
 			--query 'sort_by(Images, &CreationDate)[].[ImageId, Name]'
 ```
-> NOTE: the account id 118940168514 is the account thats hosting the FreeBSD
+> NOTE: the account id 782442783595 is the account thats hosting the FreeBSD
 > offical images.
 
 ## Notes
@@ -52,3 +52,32 @@ Check a failed build check compile flags in:
 ```
 less /data/logs/bulk/
 ```
+
+### Unsupport System
+
+If your build fails and you notice the in build logs a similar error:
+
+```
+--End resource limits--
+=======================<phase: check-sanity   >============================
+/!\ ERROR: /!\
+
+Ports Collection support for your FreeBSD version has ended, and no ports are
+guaranteed to build on this system. Please upgrade to a supported release.
+
+No support will be provided if you silence this message by defining
+ALLOW_UNSUPPORTED_SYSTEM.
+
+*** Error code 1
+
+Stop.
+```
+
+This is due to the version of FreeBSD being built is no longer supported, you need to add the following to
+your `make.conf`:
+
+```
+ALLOW_UNSUPPORTED_SYSTEM=yes
+```
+
+Please consider updating the version of the AMI and the jail you are building against

@@ -11,7 +11,7 @@ data "aws_ami" "freebsd" {
     values = ["hvm"]
   }
 
-  owners = ["118940168514"] # Account for FreeBSD hosted AMIs
+  owners = ["782442783595"] # Account for FreeBSD hosted AMIs
 }
 
 resource "aws_security_group" "poudriere" {
@@ -55,6 +55,7 @@ AMI_NAME="${data.aws_ami.freebsd.name}"
 SIGNING_S3_KEY=${var.signing_s3_key}
 SIGNING_KEY=${var.signing_key}
 S3_BUCKET=${var.pkg_s3_bucket}
+JAIL_VERSION="${var.jail_version}"
 AUTO_SPINDOWN="${var.auto_spindown ? 1 : 0}"
 EOF
 
@@ -102,6 +103,10 @@ resource "aws_launch_configuration" "poudriere" {
   instance_type     = "${var.instance_size}"
   ebs_optimized     = false
   enable_monitoring = false
+
+  root_block_device {
+    volume_size = "${var.volume_size}"
+  }
 
   lifecycle {
     create_before_destroy = true
