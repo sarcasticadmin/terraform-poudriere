@@ -67,7 +67,8 @@ mkdir /data
 mkdir -p /usr/ports/distfiles
 
 poudriere ports -c
-# git clone into /poudriere/ports/robs-ports
+# https://github.com/freebsd/poudriere/issues/740
+# git clone into /opt/robs-ports
 mkdir /opt
 git clone https://github.com/sarcasticadmin/ports.git /opt/robs-ports
 poudriere ports -c -p robs-ports -m null -M /opt/robs-ports
@@ -75,6 +76,9 @@ poudriere ports -c -p robs-ports -m null -M /opt/robs-ports
 poudriere jail -c -j "${ABI}" -v "${JAIL_VERSION}" -a "${ARCH}"
 
 poudriere bulk -f /usr/local/etc/poudriere-list -j "${ABI}"
+# Check available jail based on config from tf: poudriere jail -l
+# poudriere bulk -t -j FreeBSD:11:amd64 -O robs-ports sysutils/salt-pex
+
 
 # Url will be hostname/pkgs/ABI
 aws s3 sync "/data/packages/${ABI}-default/.latest/" "s3://${S3_BUCKET}/repos/${ABI}" --delete
