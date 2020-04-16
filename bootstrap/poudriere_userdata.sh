@@ -20,7 +20,10 @@ install_pkgs(){
   # awscli already presenet in ec2 instance
   # but installed after this bootstrap runs
   # so we must install it now
-  pkg install -y poudriere awscli curl
+  pkg install -y awscli curl git-lite
+  git clone https://github.com/freebsd/poudriere.git /root/poudriere
+  cd /root/poudriere && ./configure && make && make install
+  rehash
 }
 
 scale_down(){
@@ -64,6 +67,10 @@ mkdir /data
 mkdir -p /usr/ports/distfiles
 
 poudriere ports -c
+# git clone into /poudriere/ports/robs-ports
+mkdir /opt
+git clone https://github.com/sarcasticadmin/ports.git /opt/robs-ports
+poudriere ports -c -p robs-ports -m null -M /opt/robs-ports
 
 poudriere jail -c -j "${ABI}" -v "${JAIL_VERSION}" -a "${ARCH}"
 
