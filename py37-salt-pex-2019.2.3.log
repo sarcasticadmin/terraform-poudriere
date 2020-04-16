@@ -1,0 +1,204 @@
+=>> Building sysutils/salt-pex
+build started at Thu Apr 16 03:45:57 UTC 2020
+port directory: /overlays/robs-ports/sysutils/salt-pex
+package name: py37-salt-pex-2019.2.3
+building for: FreeBSD FreeBSD:11:amd64-default-job-01 11.3-RELEASE-p7 FreeBSD 11.3-RELEASE-p7 amd64
+maintained by: rob@sarcasticadmin.com
+Makefile ident: 
+Poudriere version: 3.3.0-289-gdb86cdd6
+Host OSVERSION: 1201000
+Jail OSVERSION: 1103000
+Job Id: 01
+
+---Begin Environment---
+SHELL=/bin/csh
+OSVERSION=1103000
+UNAME_v=FreeBSD 11.3-RELEASE-p7
+UNAME_r=11.3-RELEASE-p7
+BLOCKSIZE=K
+MAIL=/var/mail/root
+WARNING_WAIT=0
+STATUS=1
+HOME=/root
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/root/bin
+LOCALBASE=/usr/local
+USER=root
+LIBEXECPREFIX=/usr/local/libexec/poudriere
+POUDRIERE_VERSION=3.3.0-289-gdb86cdd6
+MASTERMNT=/data/.m/FreeBSD_11_amd64-default/ref
+DEV_WARNING_WAIT=0
+LC_COLLATE=C
+POUDRIERE_BUILD_TYPE=bulk
+PACKAGE_BUILDING=yes
+SAVED_TERM=screen
+GID=0
+OUTPUT_REDIRECTED_STDERR=4
+OUTPUT_REDIRECTED=1
+UID=0
+PWD=/data/.m/FreeBSD_11_amd64-default/ref/.p/pool
+OUTPUT_REDIRECTED_STDOUT=3
+NO_WARNING_PKG_INSTALL_EOL=yes
+P_PORTS_FEATURES=FLAVORS SELECTED_OPTIONS
+MASTERNAME=FreeBSD:11:amd64-default
+SCRIPTPREFIX=/usr/local/share/poudriere
+OLDPWD=/data/.m/FreeBSD_11_amd64-default/ref/.p
+SCRIPTPATH=/usr/local/share/poudriere/bulk.sh
+POUDRIEREPATH=/usr/local/bin/poudriere
+---End Environment---
+
+---Begin Poudriere Port Flags/Env---
+PORT_FLAGS=
+PKGENV=
+FLAVOR=py37
+DEPENDS_ARGS=
+MAKE_ARGS= FLAVOR=py37
+---End Poudriere Port Flags/Env---
+
+---Begin OPTIONS List---
+---End OPTIONS List---
+
+--MAINTAINER--
+rob@sarcasticadmin.com
+--End MAINTAINER--
+
+--CONFIGURE_ARGS--
+
+--End CONFIGURE_ARGS--
+
+--CONFIGURE_ENV--
+PYTHON="/usr/local/bin/python3.7" XDG_DATA_HOME=/wrkdirs/overlays/robs-ports/sysutils/salt-pex/work-py37  XDG_CONFIG_HOME=/wrkdirs/overlays/robs-ports/sysutils/salt-pex/work-py37  HOME=/wrkdirs/overlays/robs-ports/sysutils/salt-pex/work-py37 TMPDIR="/tmp" PATH=/wrkdirs/overlays/robs-ports/sysutils/salt-pex/work-py37/.bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/root/bin SHELL=/bin/sh CONFIG_SHELL=/bin/sh
+--End CONFIGURE_ENV--
+
+--MAKE_ENV--
+XDG_DATA_HOME=/wrkdirs/overlays/robs-ports/sysutils/salt-pex/work-py37  XDG_CONFIG_HOME=/wrkdirs/overlays/robs-ports/sysutils/salt-pex/work-py37  HOME=/wrkdirs/overlays/robs-ports/sysutils/salt-pex/work-py37 TMPDIR="/tmp" PATH=/wrkdirs/overlays/robs-ports/sysutils/salt-pex/work-py37/.bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/root/bin NO_PIE=yes MK_DEBUG_FILES=no MK_KERNEL_SYMBOLS=no SHELL=/bin/sh NO_LINT=YES LDSHARED="clang -shared" PYTHONDONTWRITEBYTECODE= PYTHONOPTIMIZE= PREFIX=/usr/local  LOCALBASE=/usr/local  CC="clang" CFLAGS="-O2 -pipe -fstack-protector-strong -fno-strict-aliasing "  CPP="cpp" CPPFLAGS=""  LDFLAGS=" -fstack-protector-strong " LIBS=""  CXX="c++" CXXFLAGS="-O2 -pipe -fstack-protector-strong -fno-strict-aliasing "  MANPREFIX="/usr/local" BSD_INSTALL_PROGRAM="install  -s -m 555"  BSD_INSTALL_LIB="install  -s -m 0644"  BSD_INSTALL_SCRIPT="install  -m 555"  BSD_INSTALL_DATA="install  -m 0644"  BSD_INSTALL_MAN="install  -m 444"
+--End MAKE_ENV--
+
+--PLIST_SUB--
+PYTHON_INCLUDEDIR=include/python3.7m  PYTHON_LIBDIR=lib/python3.7  PYTHON_PLATFORM=freebsd11  PYTHON_SITELIBDIR=lib/python3.7/site-packages  PYTHON_SUFFIX=37  PYTHON_VER=3.7  PYTHON_VERSION=python3.7 PYTHON2="@comment " PYTHON3="" OSREL=11.3 PREFIX=%D LOCALBASE=/usr/local  RESETPREFIX=/usr/local LIB32DIR=lib DOCSDIR="share/doc/salt-pex"  EXAMPLESDIR="share/examples/salt-pex"  DATADIR="share/salt-pex"  WWWDIR="www/salt-pex"  ETCDIR="etc/salt-pex"
+--End PLIST_SUB--
+
+--SUB_LIST--
+PYTHON_CMD=/usr/local/bin/python3.7 PREFIX=/usr/local LOCALBASE=/usr/local  DATADIR=/usr/local/share/salt-pex DOCSDIR=/usr/local/share/doc/salt-pex EXAMPLESDIR=/usr/local/share/examples/salt-pex  WWWDIR=/usr/local/www/salt-pex ETCDIR=/usr/local/etc/salt-pex
+--End SUB_LIST--
+
+---Begin make.conf---
+USE_PACKAGE_DEPENDS=yes
+BATCH=yes
+WRKDIRPREFIX=/wrkdirs
+PORTSDIR=/usr/ports
+PACKAGES=/packages
+DISTDIR=/distfiles
+OVERLAYS+=/overlays/robs-ports
+FORCE_PACKAGE=yes
+PACKAGE_BUILDING=yes
+PACKAGE_BUILDING_FLAVORS=yes
+#### /usr/local/etc/poudriere.d/make.conf ####
+CC=clang
+
+# Since this is a personal repo
+DISABLE_LICENSES=yes
+
+# For security/gnupg
+security_gnupg_SET+=SCDAEMON
+
+#### /usr/ports/Mk/Scripts/ports_env.sh ####
+_CCVERSION_00792546=FreeBSD clang version 8.0.0 (tags/RELEASE_800/final 356365) (based on LLVM 8.0.0) Target: x86_64-unknown-freebsd11.3 Thread model: posix InstalledDir: /usr/bin
+_ALTCCVERSION_00792546=none
+_CXXINTERNAL_acaad9ca=FreeBSD clang version 8.0.0 (tags/RELEASE_800/final 356365) (based on LLVM 8.0.0) Target: x86_64-unknown-freebsd11.3 Thread model: posix InstalledDir: /usr/bin "/usr/bin/ld" "--eh-frame-hdr" "-dynamic-linker" "/libexec/ld-elf.so.1" "--hash-style=both" "--enable-new-dtags" "-o" "a.out" "/usr/lib/crt1.o" "/usr/lib/crti.o" "/usr/lib/crtbegin.o" "-L/usr/lib" "/dev/null" "-lc++" "-lm" "-lgcc" "--as-needed" "-lgcc_s" "--no-as-needed" "-lc" "-lgcc" "--as-needed" "-lgcc_s" "--no-as-needed" "/usr/lib/crtend.o" "/usr/lib/crtn.o"
+CC_OUTPUT_00792546_58173849=yes
+CC_OUTPUT_00792546_9bdba57c=yes
+CC_OUTPUT_00792546_6a4fe7f5=yes
+CC_OUTPUT_00792546_6bcac02b=yes
+CC_OUTPUT_00792546_67d20829=yes
+CC_OUTPUT_00792546_bfa62e83=yes
+CC_OUTPUT_00792546_f0b4d593=yes
+CC_OUTPUT_00792546_308abb44=yes
+CC_OUTPUT_00792546_f00456e5=yes
+CC_OUTPUT_00792546_65ad290d=yes
+CC_OUTPUT_00792546_f2776b26=yes
+CC_OUTPUT_00792546_b2657cc3=yes
+CC_OUTPUT_00792546_380987f7=yes
+CC_OUTPUT_00792546_160933ec=yes
+CC_OUTPUT_00792546_fb62803b=yes
+_OBJC_CCVERSION_00792546=FreeBSD clang version 8.0.0 (tags/RELEASE_800/final 356365) (based on LLVM 8.0.0) Target: x86_64-unknown-freebsd11.3 Thread model: posix InstalledDir: /usr/bin
+_OBJC_ALTCCVERSION_00792546=none
+ARCH=amd64
+OPSYS=FreeBSD
+_OSRELEASE=11.3-RELEASE-p7
+OSREL=11.3
+OSVERSION=1103000
+PYTHONBASE=/usr/local
+HAVE_COMPAT_IA32_KERN=YES
+_SMP_CPUS=2
+CONFIGURE_MAX_CMD_LEN=262144
+HAVE_PORTS_ENV=1
+#### Misc Poudriere ####
+DISABLE_MAKE_JOBS=poudriere
+---End make.conf---
+--Resource limits--
+cpu time               (seconds, -t)  unlimited
+file size           (512-blocks, -f)  unlimited
+data seg size           (kbytes, -d)  33554432
+stack size              (kbytes, -s)  524288
+core file size      (512-blocks, -c)  unlimited
+max memory size         (kbytes, -m)  unlimited
+locked memory           (kbytes, -l)  unlimited
+max user processes              (-u)  12114
+open files                      (-n)  1024
+virtual mem size        (kbytes, -v)  2097152
+swap limit              (kbytes, -w)  unlimited
+socket buffer size       (bytes, -b)  unlimited
+pseudo-terminals                (-p)  unlimited
+kqueues                         (-k)  unlimited
+umtx shared locks               (-o)  unlimited
+--End resource limits--
+=======================<phase: check-sanity   >============================
+===========================================================================
+=======================<phase: pkg-depends    >============================
+===>   py37-salt-pex-2019.2.3 depends on file: /usr/local/sbin/pkg - not found
+===>   Installing existing package /packages/All/pkg-1.14.2.txz
+[FreeBSD:11:amd64-default-job-01] Installing pkg-1.14.2...
+[FreeBSD:11:amd64-default-job-01] Extracting pkg-1.14.2: .......... done
+===>   py37-salt-pex-2019.2.3 depends on file: /usr/local/sbin/pkg - found
+===>   Returning to build of py37-salt-pex-2019.2.3
+===========================================================================
+=======================<phase: fetch-depends  >============================
+===========================================================================
+=======================<phase: fetch          >============================
+===>   py37-salt-pex-2019.2.3 depends on file: /usr/local/sbin/pkg - found
+=> salt-2019.2.3.tar.gz doesn't seem to exist in /portdistfiles/.
+=> Attempting to fetch https://files.pythonhosted.org/packages/source/s/salt/salt-2019.2.3.tar.gz
+salt-2019.2.3.tar.gz                                    13 MB  109 MBps    00s
+===> Fetching all distfiles required by py37-salt-pex-2019.2.3 for building
+===========================================================================
+=======================<phase: checksum       >============================
+===>   py37-salt-pex-2019.2.3 depends on file: /usr/local/sbin/pkg - found
+===> Fetching all distfiles required by py37-salt-pex-2019.2.3 for building
+=> SHA256 Checksum OK for salt-2019.2.3.tar.gz.
+===========================================================================
+=======================<phase: extract-depends>============================
+===========================================================================
+=======================<phase: extract        >============================
+===>   py37-salt-pex-2019.2.3 depends on file: /usr/local/sbin/pkg - found
+===> Fetching all distfiles required by py37-salt-pex-2019.2.3 for building
+===>  Extracting for py37-salt-pex-2019.2.3
+=> SHA256 Checksum OK for salt-2019.2.3.tar.gz.
+===========================================================================
+=======================<phase: patch-depends  >============================
+===========================================================================
+=======================<phase: patch          >============================
+===>  Patching for py37-salt-pex-2019.2.3
+===========================================================================
+=======================<phase: build-depends  >============================
+===>   py37-salt-pex-2019.2.3 depends on package: py37-pex>=2.1.6 - not found
+===>   py37-salt-pex-2019.2.3 depends on package: /packages/All/py37-pex-1.2.7.txz - not found
+===>   USE_PACKAGE_DEPENDS_ONLY set - not building missing dependency from source
+*** Error code 1
+
+Stop.
+make: stopped in /overlays/robs-ports/sysutils/salt-pex
+=>> Cleaning up wrkdir
+===>  Cleaning for py37-salt-pex-2019.2.3
+build of sysutils/salt-pex | py37-salt-pex-2019.2.3 ended at Thu Apr 16 03:45:59 UTC 2020
+build time: 00:00:02
+!!! build failure encountered !!!
